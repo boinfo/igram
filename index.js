@@ -3,7 +3,7 @@ const app = express();
 app.set("json spaces", 4);
 const PORT = 3000;
 const fs = require('fs');
-
+const ig = require('ig-unduh')
 let axios = require("axios");
 
 
@@ -14,7 +14,7 @@ res.json({status:"ok"});
 });
 
 
-const ig = require('ig-unduh')
+
 
 app.get('/insta', async function (req, res) {
   try {
@@ -42,6 +42,24 @@ let d2 = newUrlPrefix + d1.slice(indexOfIg);
 });
 
 
+
+app.get('/yt', async function (req, res) {
+    let link = req.query.url;
+
+    const videoInfo = require("youtube-ext").videoInfo;
+
+    try {
+        const result = await videoInfo(link);
+        res.json(result);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+ 

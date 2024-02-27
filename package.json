@@ -21,7 +21,8 @@
     "ig-unduh": "^1.0.1",
     "instagram-get-url": "^1.0.2",
     "node-fetch": "^3.2.6",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "youtube-ext": "^1.1.16"
   },
   "description": ""
 }
