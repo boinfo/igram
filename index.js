@@ -10,7 +10,7 @@ let axios = require("axios");
 
 
 app.get('/', async function (req, res) {
-res.json({status:"ok"});
+res.json({status:"ok 2"});
 });
 
 
@@ -43,7 +43,7 @@ let d2 = newUrlPrefix + d1.slice(indexOfIg);
 
 
 
-app.get('/insta', async function (req, res) {
+app.get('/yt', async function (req, res) {
 	
 	let link = req.query.url;
 	
