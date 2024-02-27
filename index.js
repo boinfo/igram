@@ -43,17 +43,16 @@ let d2 = newUrlPrefix + d1.slice(indexOfIg);
 
 
 
-app.get('/yt', async function (req, res) {
-    let link = req.query.url;
+app.get('/insta', async function (req, res) {
+	
+	let link = req.query.url;
+	
+	const videoInfo = require("youtube-ext").videoInfo; 
 
-    const videoInfo = require("youtube-ext").videoInfo;
+    const result = await videoInfo(query);
 
-    try {
-        const result = await videoInfo(link);
-        res.json(result);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
+    res.json(result);
+    
 });
 
 
