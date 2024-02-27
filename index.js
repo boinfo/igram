@@ -5,12 +5,14 @@ const PORT = 3000;
 const fs = require('fs');
 const ig = require('ig-unduh')
 let axios = require("axios");
+const Youtube = require('youtube-stream-url');
+
 
 
 
 
 app.get('/', async function (req, res) {
-res.json({status:"ok 2"});
+res.json({status:"ok 3"});
 });
 
 
@@ -44,16 +46,17 @@ let d2 = newUrlPrefix + d1.slice(indexOfIg);
 
 
 app.get('/yt', async function (req, res) {
-	
-	let link = req.query.url;
-	
-	const videoInfo = require("youtube-ext").videoInfo; 
+    let link = req.query.url;
 
-    const result = await videoInfo(query);
-
-    res.json(result);
-    
+    try {
+        const video = await Youtube.getInfo({ url: link });
+        res.json(video);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 });
+
+
 
 
 
