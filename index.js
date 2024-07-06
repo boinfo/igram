@@ -6,7 +6,7 @@ const fs = require('fs');
 const ig = require('ig-unduh')
 let axios = require("axios");
 const Youtube = require('youtube-stream-url');
-const { ndown } = require("imran-downloader")
+const ndown = require("imran-downloader");
 
 
 
@@ -48,16 +48,14 @@ app.get('/insta2', async function (req, res) {
   try {
     let link = req.query.url;
 
-    let URL = await ndown(link)
-    
-    
-    res.json({URL});
-    
+    let vdourl = await ndown(link);
+
+    res.json({ vdourl });
   } catch (err) {
-    
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 
 
 app.get('/yt', async function (req, res) {
