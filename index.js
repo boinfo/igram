@@ -6,8 +6,7 @@ const fs = require('fs');
 const ig = require('ig-unduh')
 let axios = require("axios");
 const Youtube = require('youtube-stream-url');
-
-
+const { ndown } = require("imran-downloader")
 
 
 
@@ -43,6 +42,22 @@ let d2 = newUrlPrefix + d1.slice(indexOfIg);
   }
 });
 
+
+
+app.get('/insta2', async function (req, res) {
+  try {
+    let link = req.query.url;
+
+    let URL = await ndown(link)
+    
+    
+    res.json({URL});
+    
+  } catch (err) {
+    
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 
 app.get('/yt', async function (req, res) {
