@@ -7,11 +7,23 @@ const ig = require('ig-unduh')
 let axios = require("axios");
 const Youtube = require('youtube-stream-url');
 const ndown = require("imran-downloader");
-
+const { pinterestdl } = require('imran-servar');
 
 
 app.get('/', async function (req, res) {
 res.json({status:"ok 3"});
+});
+
+app.get('/pin', async function (req, res) {
+  try {
+    let link = req.query.url;
+
+    let vdourl = await pinterestdl(link);
+
+    res.json({ vdourl });
+  } catch (err) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 
