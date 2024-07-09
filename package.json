@@ -22,6 +22,7 @@
     "imran-servar": "^1.0.4",
     "imran-downloader": "^2.0.6",
     "instagram-get-url": "^1.0.2",
+    "jsdom": "^24.1.0",
     "node-fetch": "^3.2.6",
     "uuid": "^9.0.1",
     "youtube-stream-url": "^2.4.3"
